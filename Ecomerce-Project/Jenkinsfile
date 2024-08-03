@@ -65,6 +65,8 @@ pipeline {
             steps {
                 // Build the application
                 dir('Ecomerce-Project') {
+                // Set execute permission for mvnw script
+                    sh 'chmod +x mvnw'
                     sh './mvnw clean package'
                     echo 'Inside Build'
                 }
