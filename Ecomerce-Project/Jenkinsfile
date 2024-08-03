@@ -30,12 +30,12 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                // Deploy the application to GCP
-                sh './deploy.sh'
-            }
-        }
+//         stage('Deploy') {
+//             steps {
+//                 // Deploy the application to GCP
+//                 sh './deploy.sh'
+//             }
+//         }
     }
 
     post {
