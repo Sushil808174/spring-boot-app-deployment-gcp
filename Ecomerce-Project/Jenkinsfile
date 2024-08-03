@@ -63,14 +63,18 @@ pipeline {
         stage('Build') {
             steps {
                 // Build the application
-                sh './mvnw clean package'
+                dir('Ecomerce-Project') {
+                    sh './mvnw clean package'
+                }
             }
         }
 
         stage('Test') {
             steps {
                 // Run tests
-                sh './mvnw test'
+                dir('Ecomerce-Project') {
+                    sh './mvnw test'
+                }
             }
         }
     }
