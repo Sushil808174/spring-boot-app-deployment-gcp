@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    environment {
+        GCP_PROJECT_ID = 'learning-gcp-430208'
+        GCP_INSTANCE_NAME = 'spring-boo-app-deployment'
+        GCP_ZONE = 'us-central1-a'
+        GCS_BUCKET = 'ecomerce-bucket'  // Replace with your actual bucket name
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from GitHub
+                git url: 'https://github.com/Sushil808174/spring-boot-app-deployment-gcp.git', branch: 'main'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build the application
+                sh './mvnw clean package'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests
+                sh './mvnw test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy the application to GCP
+                sh './deploy.sh'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
