@@ -25,4 +25,9 @@ public class ProductController {
     public ResponseEntity<Product> saveProduct(@RequestBody Product product){
         return new ResponseEntity<>(productRepository.save(product), HttpStatus.CREATED);
     }
+
+    @GetMapping
+    public ResponseEntity<String> helloworld(){
+        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+    }
 }
