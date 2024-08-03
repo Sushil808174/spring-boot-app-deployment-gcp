@@ -78,7 +78,6 @@ pipeline {
                 // Run tests
                 dir('Ecomerce-Project') {
                     sh './mvnw test'
-                    echo 'Inside Test'
                 }
             }
         }
