@@ -57,6 +57,7 @@ pipeline {
             steps {
                 // Checkout the code from GitHub
                 git url: 'https://github.com/Sushil808174/spring-boot-app-deployment-gcp.git', branch: 'main'
+                echo 'Inside Checkout'
             }
         }
 
@@ -65,6 +66,7 @@ pipeline {
                 // Build the application
                 dir('Ecomerce-Project') {
                     sh './mvnw clean package'
+                    echo 'Inside Build'
                 }
             }
         }
@@ -74,6 +76,7 @@ pipeline {
                 // Run tests
                 dir('Ecomerce-Project') {
                     sh './mvnw test'
+                    echo 'Inside Test'
                 }
             }
         }
