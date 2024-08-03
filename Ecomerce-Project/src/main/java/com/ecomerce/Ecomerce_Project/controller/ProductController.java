@@ -28,6 +28,6 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<String> helloworld(){
-        return new ResponseEntity<>("Hello World", HttpStatus.OK);
+        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
     }
 }
